@@ -12,7 +12,6 @@ import com.sky.vo.EmployeeLoginVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
-import jdk.jpackage.internal.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -79,19 +78,21 @@ public class EmployeeController {
         return Result.success();
     }
 
-}
-
     /**
      * 新增员工
      * @param employeeDTO
      * @return
      */
-
     @PostMapping
     @ApiOperation("新增员工")
     public Result save(@RequestBody EmployeeDTO employeeDTO){
-        Log.info("新增员工：{}",employeeDTO);
-        EmployeeService.save(employeeDTO);
-        return null;
-        }
+        log.info("新增员工：{}",employeeDTO);
+        employeeService.save(employeeDTO);
+        return Result.success();
+    }
+
+
+}
+
+
 
